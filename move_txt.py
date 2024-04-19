@@ -1,5 +1,14 @@
+# CHEM283: CAPSTONE
+# CREATOR: KOREDE OGUNDELE
+# DATE CREATED: APRIL 8, 2024
+# LAST MODIFIED: APRIL 19, 2024
+
 import os
 import shutil
+
+# modify to fit your desird origin and destination directories
+origin_filepath = "/global/homes/k/korede/DeepFRI/fasta_work/individual_fastas"
+destination_filepath = "/global/homes/k/korede/DeepFRI/fasta_work/fasta_txts"
 
 def move_txt_files(origin_directory, destination_directory):
     """
@@ -16,19 +25,18 @@ def move_txt_files(origin_directory, destination_directory):
     -------
     None.
     """
+    if not os.path.exists(destination_directory):
+        os.makedirs(destination_directory)
+        
+    file_list = os.listdir(origin_directory)
 
-    os.makedirs(destination_directory)
-
-    for file in os.listdir(origin_directory):
-        # check file ending
+    for file in file_list:
         if file.endswith('.txt'):
-            # get full file paths
             origin_file = os.path.join(origin_directory, file)
             destination_file = os.path.join(destination_directory, file)
-            # move file to destination directory
+
             shutil.move(origin_file, destination_file)
             print(f"{file} moved to {destination_directory}")
 
-            return
-
-# python move_txt.py /global/homes/k/korede/DeepFRI/fasta_work/individual_fastas /global/homes/k/korede/DeepFRI/fasta_work/fasta_txts
+if __name__ == "__main__":
+    move_txt_files(origin_filepath, destination_filepath)

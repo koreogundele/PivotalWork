@@ -1,4 +1,12 @@
+# CHEM283: CAPSTONE
+# CREATOR: KOREDE OGUNDELE
+# DATE CREATED: APRIL 8, 2024
+# LAST MODIFIED: APRIL 19, 2024
+
 import os
+
+# remember to modify directory_path
+directory_path = "/global/homes/k/korede/DeepFRI/fasta_work/fasta_txts"
 
 def count_files_in_directory(directory):
     """
@@ -21,8 +29,5 @@ def count_files_in_directory(directory):
     return
 
 
-# run the function. idk how to do it from terminal
 if __name__ == "__main__":
-    # remember to modify file path
-    directory_path = "/global/homes/k/korede/DeepFRI/fasta_work/individual_fastas"
     file_count = count_files_in_directory(directory_path)
